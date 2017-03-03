@@ -19,6 +19,9 @@ public\ static     { imprimirElemento(yytext(), "Cabecera de metodo");}
 ,                  { imprimirElemento(yytext(), "coma");}
 int|boolean	   { imprimirElemento(yytext(), "Tipo de datos");}
 return             {imprimirElemento(yytext(), "Sentencia return");}
+for				{imprimirElemento(yytext(), "Palabra reservada");}
+do 				{imprimirElemento(yytext(), "Palabra reservada");}
+while 			{imprimirElemento(yytext(), "Palabra reservada");}
 true|false	   {imprimirElemento(yytext(), "Valor booleano");}
 [a-zA-z_]+\(	   {imprimirElemento(yytext(), "Nombre de metodo");}
 \(             {imprimirElemento(yytext(), "Apertura parentesis");}
