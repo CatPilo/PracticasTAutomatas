@@ -17,7 +17,7 @@ public\ static     { imprimirElemento(yytext(), "Cabecera de metodo");}
 \<|>|<=|>=|==|\!= { imprimirElemento(yytext(), "Operador relacional");}
 =		  {imprimirElemento(yytext(), "Asignacion");}
 ,                  { imprimirElemento(yytext(), "coma");}
-int|boolean	   { imprimirElemento(yytext(), "Tipo de datos");}
+int|boolean|void	   { imprimirElemento(yytext(), "Tipo de datos");}
 return             {imprimirElemento(yytext(), "Sentencia return");}
 for				{imprimirElemento(yytext(), "Palabra reservada");}
 do 				{imprimirElemento(yytext(), "Palabra reservada");}
