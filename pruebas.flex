@@ -23,7 +23,6 @@ for				{imprimirElemento(yytext(), "Palabra reservada");}
 do 				{imprimirElemento(yytext(), "Palabra reservada");}
 while 			{imprimirElemento(yytext(), "Palabra reservada");}
 true|false	   {imprimirElemento(yytext(), "Valor booleano");}
-[a-zA-z_]+\(	   {imprimirElemento(yytext(), "Nombre de metodo");}
 \(             {imprimirElemento(yytext(), "Apertura parentesis");}
 \)	       {imprimirElemento(yytext(), "Cierre parentesis");}
 \{	       {imprimirElemento(yytext(), "Apertura llave");}
@@ -31,5 +30,5 @@ true|false	   {imprimirElemento(yytext(), "Valor booleano");}
 ;		   {imprimirElemento(yytext(), "Fin de sentencia");}
 &&|\!|\|\| {imprimirElemento(yytext(), "Operador logico");}
 [0-9]+(\.[0-9]*)?  { imprimirElemento(yytext(), "Número literal");}
-[a-z]+[a-zA-Z0-9_]*	   { imprimirElemento(yytext(), "Nombre de variable");}
+[a-z]+[a-zA-Z0-9_]*	   { imprimirElemento(yytext(), "Identificador");}
 . {}
