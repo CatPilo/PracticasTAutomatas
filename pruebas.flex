@@ -27,8 +27,10 @@ true|false	   {imprimirElemento(yytext(), "Valor booleano");}
 \)	       {imprimirElemento(yytext(), "Cierre parentesis");}
 \{	       {imprimirElemento(yytext(), "Apertura llave");}
 \}	       {imprimirElemento(yytext(), "Cierre llave");}
+\/\*			{imprimirElemento(yytext(), "Comienzo de comentario");}
+\*\/			{imprimirElemento(yytext(), "Fin de comentario");}
 ;		   {imprimirElemento(yytext(), "Fin de sentencia");}
 &&|\!|\|\| {imprimirElemento(yytext(), "Operador logico");}
 [0-9]+(\.[0-9]*)?  { imprimirElemento(yytext(), "Número literal");}
 [a-z]+[a-zA-Z0-9_]*	   { imprimirElemento(yytext(), "Identificador");}
-. {}
+.	{}
