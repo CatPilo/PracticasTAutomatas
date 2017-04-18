@@ -20,8 +20,8 @@ parser code {:
 
 /* ------------ Declaracion de la lista de simbolos de la gramatica ----------- */
 
-terminal PUNTOYCOMA, MAS, POR, PAREN_I, PAREN_D;
-terminal Integer NUMERO;
+terminal CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
+terminal Integer NL;
 non terminal lista, expr_p;
 non terminal Integer expr;
 
