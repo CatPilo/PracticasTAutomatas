@@ -31,7 +31,7 @@ void			   { return new Symbol(sym.TD);}
 return             { return new Symbol(sym.R);}
 for				   { return new Symbol(sym.PR);}
 do 				   { return new Symbol(sym.PR);}
-while 			   { return new Symbol(sym.PR);}
+while 			   { return new Symbol(sym.W);}
 true			   { return new Symbol(sym.B);}
 false			   { return new Symbol(sym.B);}
 "("				   { return new Symbol(sym.AP);}
@@ -41,8 +41,9 @@ false			   { return new Symbol(sym.B);}
 "/*"			   { return new Symbol(sym.CC);}
 "*/"			   { return new Symbol(sym.FC);}
 ;				   { return new Symbol(sym.FS);}
+
 &&				   { return new Symbol(sym.OL);}
-"!"			       { return new Symbol(sym.OL);}
+"!"			       { return new Symbol(sym.OLU);}
 "||"			   { return new Symbol(sym.OL);}
 [0-9]+(\.[0-9]*)?  { return new Symbol(sym.NL, new Integer(yytext()));}
 [a-z]+[a-zA-Z0-9_]* { return new Symbol(sym.I);}

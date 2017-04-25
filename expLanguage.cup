@@ -20,22 +20,33 @@ parser code {:
 
 /* ------------ Declaracion de la lista de simbolos de la gramatica ----------- */
 
-terminal CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
+terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
 terminal Integer NL;
-non terminal lista, expr_p;
+
+non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile;
 non terminal Integer expr;
 
 /* ------------- Declaracion de precedencias ----------- */
 
-precedence left MAS;
-precedence left POR;
+/*precedence left MAS;
+precedence left POR;*/
+precedence left OA;
+precedence left OL;
+precedence left OR;
+/* -------------- Declaracion de la gramatica ----------- */
+sentencia ::= sentenciaReturn | asignacion | declaracion;
+sentencias ::= sentencia sentencias | ;
+sentenciaReturn ::= R expr FS;
 
-/* -------------- Declaricon de la gramatica ----------- */
+declaracion ::= TD I FS;
+asignacion ::= I A expr FS | TD I A expr FS;
+expr ::= NL
+    | B
+    | I
+    | expr OA expr
+    | expr OR expr
+    | expr OL expr
+    | OLU expr
+    | AP expr CP ;
 
-lista ::= lista expr_p | expr_p;
-expr_p ::= expr PUNTOYCOMA;
-expr
-::= NUMERO
-| expr MAS expr
-| expr POR expr
-| PAREN_I expr PAREN_D ;
+bucleWhile ::= W AP expr CP AL sentencias CL;
