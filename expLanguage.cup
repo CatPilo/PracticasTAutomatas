@@ -22,7 +22,7 @@ System.out.println("Análisis Correcto ");
 terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
 terminal Integer NL;
 
-non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, argsConComa;
+non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, llamadaMetodo, parametros, parametro, bucleDoWhile;
 non terminal Integer expr;
 
 /* ------------- Declaracion de precedencias ----------- */
@@ -34,7 +34,8 @@ precedence left OL;
 precedence left OR;
 /* -------------- Declaracion de la gramatica ----------- */
 sentencias ::= sentencia sentencias | ;
-sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile | metodo;
+sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile | metodo
+	      | llamadaMetodo FS | bucleDoWhile;
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
@@ -46,10 +47,16 @@ expr ::= NL
     | expr OR expr
     | expr OL expr
     | OLU expr
-    | AP expr CP ;
-
-metodo ::= CM TD I AP args CP AL sentencias CL;
-args ::= argsConComa | ;
-argsConComa ::= TD I C argsConComa | ;
-
+    | AP expr CP
+    | OID I
+    | I OID
+    | llamadaMetodo;
+metodo ::= CM TD I AP args CP AL sentencias CL |
+       	   CM TD I AP CP AL sentencias CL;
+args ::= TD I C args| TD I ; 
+llamadaMetodo ::= I AP parametros CP |
+	      	  I AP CP;
+parametros ::= parametro C parametros | parametro;
+parametro ::= expr;
 bucleWhile ::= W AP expr CP AL sentencias CL;
+bucleDoWhile ::= PR AL sentencias CL W AP expr CP FS;
