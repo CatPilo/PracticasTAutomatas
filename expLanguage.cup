@@ -35,7 +35,7 @@ precedence left OL;
 precedence left OR;
 /* -------------- Declaracion de la gramatica ----------- */
 sentencias ::= sentencia sentencias | ;
-sentencia ::= sentenciaReturn | asignacion | declaracion;
+sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile;
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
