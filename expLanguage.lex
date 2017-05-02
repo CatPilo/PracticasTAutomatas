@@ -10,7 +10,7 @@ import java_cup.runtime.Symbol;
 
 /* ------------------------ Seccion de reglas lexicas ---------------------- */
 
-public static      { return new Symbol(sym.CM);}
+"public static"      { return new Symbol(sym.CM);}
 "++"			   { return new Symbol(sym.OID);}
 "--"			   { return new Symbol(sym.OID);}
 "+"				   { return new Symbol(sym.OA);}
