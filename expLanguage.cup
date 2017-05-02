@@ -34,8 +34,8 @@ precedence left OA;
 precedence left OL;
 precedence left OR;
 /* -------------- Declaracion de la gramatica ----------- */
-sentencia ::= sentenciaReturn | asignacion | declaracion;
 sentencias ::= sentencia sentencias | ;
+sentencia ::= sentenciaReturn | asignacion | declaracion;
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
