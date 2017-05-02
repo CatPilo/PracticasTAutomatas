@@ -34,7 +34,7 @@ precedence left OL;
 precedence left OR;
 /* -------------- Declaracion de la gramatica ----------- */
 sentencias ::= sentencia sentencias | ;
-sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile;
+sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile | metodo;
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
@@ -47,5 +47,9 @@ expr ::= NL
     | expr OL expr
     | OLU expr
     | AP expr CP ;
+
+metodo ::= CM TD I AP args CP AL sentencias CL;
+args ::= argsConComa | ;
+argsConComa ::= TD I C argsConComa | ;
 
 bucleWhile ::= W AP expr CP AL sentencias CL;
