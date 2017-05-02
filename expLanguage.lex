@@ -47,5 +47,5 @@ false			   { return new Symbol(sym.B);}
 "||"			   { return new Symbol(sym.OL);}
 [0-9]+(\.[0-9]*)?  { return new Symbol(sym.NL, new Integer(yytext()));}
 [a-z]+[a-zA-Z0-9_]* { return new Symbol(sym.I);}
-[\t\r\n\f] { /* Ignora delimitaciones */ }
+[\t\r\n\f ] { /* Ignora delimitaciones */ }
 . {System.err.println("Caracter Ilegal: "+yytext());}
