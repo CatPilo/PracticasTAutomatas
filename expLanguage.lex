@@ -29,7 +29,6 @@ int 			   { return new Symbol(sym.TD);}
 boolean 		   { return new Symbol(sym.TD);}
 void			   { return new Symbol(sym.TD);}
 return             { return new Symbol(sym.R);}
-for				   { return new Symbol(sym.PR);}
 do 				   { return new Symbol(sym.PR);}
 while 			   { return new Symbol(sym.W);}
 true			   { return new Symbol(sym.B);}
@@ -38,8 +37,6 @@ false			   { return new Symbol(sym.B);}
 ")"				   { return new Symbol(sym.CP);}
 "{"				   { return new Symbol(sym.AL);}
 "}"				   { return new Symbol(sym.CL);}
-"/*"			   { return new Symbol(sym.CC);}
-"*/"			   { return new Symbol(sym.FC);}
 ;				   { return new Symbol(sym.FS);}
 
 &&				   { return new Symbol(sym.OL);}
