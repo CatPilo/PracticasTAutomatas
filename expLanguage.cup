@@ -4,26 +4,25 @@ import java_cup.runtime.*;
 import java.io.*;
 
 /* ---------------------- Seccion componentes de codigo de usuario --------------------*/
-
 parser code {:
-	public static void main(String args[]) throws Exception {
-		try{
-			new parser(new Yylex(System.in)).parse(); // Inicializamos el scanner (Yylex) para que
-		}
-		// la entrada sea por teclado
-		catch ( Exception e) {
-			System.out.println(" Análisis INCORRECTO !!");
-			System.exit(1);}
-		System.out.println("Análisis Correcto ");
-	}
+public static void main(String args[]) throws Exception {
+FileInputStream fichero=new FileInputStream(args[0]);
+DataInputStream entrada =new DataInputStream(fichero);
+try{
+new parser(new Yylex(entrada)).parse();
+}
+catch ( Exception e) {
+System.out.println(" Análisis INCORRECTO !!");
+System.exit(1);}
+System.out.println("Análisis Correcto ");
+}
 :}
-
 /* ------------ Declaracion de la lista de simbolos de la gramatica ----------- */
 
 terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
 terminal Integer NL;
 
-non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile;
+non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, argsConComa;
 non terminal Integer expr;
 
 /* ------------- Declaracion de precedencias ----------- */
