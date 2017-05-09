@@ -19,10 +19,10 @@ System.out.println("Análisis Correcto ");
 :}
 /* ------------ Declaracion de la lista de simbolos de la gramatica ----------- */
 
-terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I;
+terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I, IF, EIF, ELS;
 terminal Integer NL;
 
-non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, llamadaMetodo, parametros, parametro, bucleDoWhile;
+non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, llamadaMetodo, parametros, parametro, bucleDoWhile, sentenciaIf, sentenciaElseIf, sentenciaElse;
 non terminal Integer expr;
 
 /* ------------- Declaracion de precedencias ----------- */
@@ -35,7 +35,7 @@ precedence left OR;
 /* -------------- Declaracion de la gramatica ----------- */
 sentencias ::= sentencia sentencias | ;
 sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile | metodo
-	      | llamadaMetodo FS | bucleDoWhile;
+	      | llamadaMetodo FS | bucleDoWhile | sentenciaIf;
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
@@ -60,3 +60,8 @@ parametros ::= parametro C parametros | parametro;
 parametro ::= expr;
 bucleWhile ::= W AP expr CP AL sentencias CL;
 bucleDoWhile ::= PR AL sentencias CL W AP expr CP FS;
+
+sentenciaIf ::= IF AP expr CP AL sentencias CL sentenciaElseIf;
+sentenciaElseIf ::= EIF AP expr CP AL sentencias CL sentenciaElseIf
+	       	   | sentenciaElse | ;
+sentenciaElse ::= ELS AP expr CP AL sentencias CL;

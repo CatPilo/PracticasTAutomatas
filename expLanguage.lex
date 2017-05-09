@@ -38,7 +38,9 @@ false			   { return new Symbol(sym.B);}
 "{"				   { return new Symbol(sym.AL);}
 "}"				   { return new Symbol(sym.CL);}
 ;				   { return new Symbol(sym.FS);}
-
+"if"                               { return new Symbol(sym.IF);}
+"else if"                          { return new Symbol(sym.EIF);}
+"else"                             { return new Symbol(sym.ELS);}
 &&				   { return new Symbol(sym.OL);}
 "!"			       { return new Symbol(sym.OLU);}
 "||"			   { return new Symbol(sym.OL);}
