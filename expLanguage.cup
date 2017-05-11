@@ -39,7 +39,7 @@ sentencia ::= sentenciaReturn | asignacion | declaracion | bucleWhile | metodo
 sentenciaReturn ::= R expr FS;
 
 declaracion ::= TD I FS;
-asignacion ::= I A expr FS | TD I A expr FS;
+asignacion ::= I A expr FS | TD I A expr FS | OID I FS | I OID FS;
 expr ::= NL
     | B
     | I
