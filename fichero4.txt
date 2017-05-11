@@ -1,0 +1,7 @@
+public static void ejemplo(){
+    if ( x * 4 == 0 ){
+        int y = --x;
+    }else if((x + 5) >= 10){
+        boolean b = (x < 3) || (x > 10);
+    }
+}
