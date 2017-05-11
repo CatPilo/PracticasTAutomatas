@@ -1,0 +1,11 @@
+public static int calculos(int radio, int apotema, int lado){
+    if ((radio == 0) && (apotema == 0)){
+      area = 2 * (lado * lado);
+    }
+
+    if (apotema == 0 || area != 4) {
+      apotema = (radio * radio) - ((lado/2) * (lado/2));
+      area = ((lado*5)*apotema)/2;
+    }
+    return area;
+}

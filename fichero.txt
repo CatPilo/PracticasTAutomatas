@@ -1,0 +1,12 @@
+public static boolean comparar(int valor, int tope) {
+	int aux;
+	aux = calculaValor(valor);
+	return ((2<5*2) || (aux<1)) && true;
+}
+
+public static int calculaValor(int valor1, int valor2) {
+	int aux = 1;
+	do{
+		int a = 3;
+	}while(a != 2);
+}

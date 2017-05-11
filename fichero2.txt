@@ -1,0 +1,12 @@
+public static int digitosNumero(int iNumero){
+	int iNumeros = 0;
+	int iDigito = 0;
+	while (iNumeros>0){
+		iNumeros = (iNumeros * 10) / 10;
+		iDigito++;
+		iNumeros--;
+		int a = numeros++;
+	}
+
+	return iNumeros;
+}
