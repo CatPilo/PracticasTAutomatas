@@ -22,7 +22,7 @@ parser code {:
 terminal W, OLU, CM, OID, OA, OR, A, C, TD, R, PR, B, AP, CP, AL, CL, CC, FC, FS, OL, I, IF, EIF, ELS;
 terminal Integer NL;
 
-non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, llamadaMetodo, parametros, parametro, bucleDoWhile, sentenciaIf, sentenciaElseIf, sentenciaElse, inicial;
+non terminal sentencia, sentencias, sentenciaReturn, declaracion, asignacion, bucleWhile, metodo, args, llamadaMetodo, parametros,  bucleDoWhile, sentenciaIf, sentenciaElseIf, sentenciaElse, inicial;
 non terminal Integer expr;
 
 /* ------------- Declaracion de precedencias ----------- */
@@ -52,13 +52,13 @@ expr ::= NL
     | OID I
     | I OID
     | llamadaMetodo;
-metodo ::= CM TD I AP args CP AL sentencias CL |
+metodo ::= CM TD I AP parametros CP AL sentencias CL |
        	   CM TD I AP CP AL sentencias CL;
-args ::= TD I C args| TD I ; 
-llamadaMetodo ::= I AP parametros CP |
+parametros ::= TD I C parametros | TD I ; 
+llamadaMetodo ::= I AP args CP |
 	      	  I AP CP;
-parametros ::= parametro C parametros | parametro;
-parametro ::= expr;
+args ::= expr C args | expr;
+
 bucleWhile ::= W AP expr CP AL sentencias CL;
 bucleDoWhile ::= PR AL sentencias CL W AP expr CP FS;
 
